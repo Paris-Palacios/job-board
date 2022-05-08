@@ -4,7 +4,7 @@
 
 const ACCESS_TOKEN_KEY = 'accessToken';
 const API_URL = 'http://localhost:9000';
-const pene = 'me gusta la namijo';
+
 export function getAccessToken() {
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
