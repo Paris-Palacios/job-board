@@ -6,6 +6,11 @@ function rejectIf(condition){
     }
 }
 
+function delay(ms){
+    return new Promise((resolve) => {
+        setTimeout(resolve,ms);
+    });
+}
 
 export const resolvers = {
     Query:{
@@ -15,8 +20,9 @@ export const resolvers = {
     },
 
     Mutation: {
-        createJob: (_root,{input}, {user}) => {
+        createJob: async (_root,{input}, {user}) => {
             rejectIf(!user);
+            await delay(2000);
             const {companyId} = user;
             return Job.create({...input, companyId});
     },
